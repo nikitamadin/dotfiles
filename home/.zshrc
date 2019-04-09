@@ -106,9 +106,6 @@ zplug "themes/agnoster", from:oh-my-zsh
 # Dotfiles
 zplug "$DOTFILES/lib", from:local
 
-# Custom local overridings
-zplug "$DOTFILES/custom", from:local
-
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
   zplug install
