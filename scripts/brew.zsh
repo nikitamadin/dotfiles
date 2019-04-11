@@ -109,6 +109,7 @@ main() {
   brew_install cask visual-studio-code
   brew_install cask slack
   brew_install cask transmission
+  brew_install cask transmission
   # Finish
   on_finish
 }
