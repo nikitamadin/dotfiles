@@ -109,7 +109,11 @@ main() {
   brew_install cask visual-studio-code
   brew_install cask slack
   brew_install cask transmission
-  brew_install cask transmission
+  brew_install cask skype
+  brew_install cask spectacle
+  brew_install cask appcleaner
+  brew_install cask the-unarchiver
+  brew_install cask virtualbox
   # Finish
   on_finish
 }
