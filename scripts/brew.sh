@@ -62,12 +62,6 @@ brew_install() {
 
   [[ -z $program ]] && program=$cask
 
-  ask "Do you agree to install $(info $program)?" && read answer
-  if [[ ${answer} != "y" ]]; then
-    success "Skipping..."
-    return
-  fi
-
   if [[ $cask == 'cask' ]]; then
     info "Installing $program with cask..."
     brew cask install $program
