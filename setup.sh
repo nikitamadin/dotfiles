@@ -218,7 +218,7 @@ bootstrap() {
     return
   fi
 
-  $DOTFILES/scripts/bootstrap.zsh
+  $DOTFILES/scripts/bootstrap.sh
 
   finish
 }

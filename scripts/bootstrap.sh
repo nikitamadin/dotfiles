@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Bootstrap script for installing applications and tools
 
@@ -8,7 +8,7 @@ sudo -v
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
 cd $DOTFILES/scripts
-. ./brew.zsh
-. ./nodejs.zsh
-. ./vscode.zsh
+. ./brew.sh
+. ./nodejs.sh
+. ./vscode.sh
 cd -
