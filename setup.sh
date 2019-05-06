@@ -64,11 +64,6 @@ on_start() {
 }
 
 install_cli_tools() {
-  # There's not need to install XCode tools on Linux
-  if [ `uname` == 'Linux' ]; then
-    return
-  fi
-
   info "Trying to detect installed Command Line Tools..."
 
   if ! [ $(xcode-select -p) ]; then
@@ -130,14 +125,7 @@ install_git() {
 
     info "Installing Git..."
 
-    if [ `uname` == 'Darwin' ]; then
-      brew install git
-    elif [ `uname` == 'Linux' ]; then
-      sudo apt-get install git
-    else
-      error "Error: Failed to install Git!"
-      exit 1
-    fi
+    brew install git
   else
     success "You already have Git installed. Skipping..."
   fi
@@ -158,15 +146,7 @@ install_zsh() {
 
     info "Installing Zsh..."
 
-    if [ `uname` == 'Darwin' ]; then
-      brew install zsh zsh-completions
-      curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-    elif [ `uname` == 'Linux' ]; then
-      sudo apt-get install zsh
-    else
-      error "Error: Failed to install Zsh!"
-      exit 1
-    fi
+    brew install zsh zsh-completions
   else
     success "You already have Zsh installed. Skipping..."
   fi
@@ -182,6 +162,27 @@ install_zsh() {
 
     echo "$(command -v zsh)" | sudo tee -a /etc/shells
     chsh -s "$(command -v zsh)" || error "Error: Cannot set Zsh as default shell!"
+  fi
+
+  finish
+}
+
+install_zplug() {
+  info "Trying to detect installed Zplug..."
+
+  if ! _exists zplug; then
+    echo "Seems like you don't have zplug installed!"
+    read -p "Do you agree to proceed with zplug installation? [y/N] " -n 1 answer
+    echo
+    if [ ${answer} != "y" ]; then
+      exit 1
+    fi
+
+    info "Installing zplug..."
+
+    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+  else
+    success "You already have zplug installed. Skipping..."
   fi
 
   finish
@@ -255,6 +256,7 @@ main() {
   install_homebrew "$*"
   install_git "$*"
   install_zsh "$*"
+  install_zplug "$*"
   install_dotfiles "$*"
   bootstrap "$*"
   on_finish "$*"

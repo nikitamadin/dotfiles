@@ -146,6 +146,12 @@ main() {
   # Sync settings
   sync_code
   # Extensions
+  code_install ms-vscode.atom-keybindings
+  code_install mrmlnc.vscode-duplicate
+  code_install ronnidc.nunjucks
+  code_install esbenp.prettier-vscode
+  code_install alefragnani.project-manager
+  code_install robinbentley.sass-indented
   code_install EditorConfig.EditorConfig
   code_install wix.vscode-import-cost
   # Finish

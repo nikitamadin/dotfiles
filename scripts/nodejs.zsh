@@ -57,18 +57,12 @@ on_start() {
 install_node() {
   info "Installing Node.js..."
 
-  if [[ "$(uname)" == 'Darwin' ]]; then
-    brew install node
-  else
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-    sudo apt-get install -y nodejs build-essential
-  fi
+  brew install node
 
   finish
 }
 
 install_nvm() {
-  # Install nvm
   info "Installing nvm..."
 
   mkdir $HOME/.nvm
@@ -78,7 +72,6 @@ install_nvm() {
 }
 
 configure_npm_init() {
-  # Ask required parameters
   info "Configure npm init..."
 
   # Defaults
@@ -107,7 +100,6 @@ configure_npm_init() {
 }
 
 fix_npm_perm() {
-  # Fixing npm permissions
   info "Fixing npm permissions..."
 
   NPM_PREFIX="$(npm config get prefix)"

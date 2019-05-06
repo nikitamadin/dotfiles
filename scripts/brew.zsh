@@ -114,6 +114,8 @@ main() {
   brew_install cask appcleaner
   brew_install cask the-unarchiver
   brew_install cask virtualbox
+  brew_install cask figma
+  brew_install cask zeplin
   # Finish
   on_finish
 }

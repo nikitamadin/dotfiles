@@ -1,1 +1,12 @@
-
+{
+  "workbench.statusBar.feedback.visible": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "atomKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.formatOnPaste": true,
+  "emmet.triggerExpansionOnTab": true,
+  "editor.wordWrap": "on",
+  "editor.renderWhitespace": "all",
+  "editor.scrollBeyondLastLine": false,
+  "editor.minimap.enabled": false
+}
