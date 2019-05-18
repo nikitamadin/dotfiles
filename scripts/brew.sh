@@ -110,6 +110,7 @@ main() {
   brew_install cask virtualbox
   brew_install cask figma
   brew_install cask zeplin
+  brew_install cask dozer
   # Finish
   on_finish
 }
