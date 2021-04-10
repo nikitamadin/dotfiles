@@ -1,32 +1,17 @@
 [user]
-  name  = Nikita Madin
-  email = nikita.madin@gmail.com
-
-[color]
-  ui = auto
-
-[color "diff"]
-  meta = white bold
-  frag = cyan bold
-  old = red bold
-  new = green bold
-
-[core]
-  editor = vim
-  excludesfile = ~/.gitignore
-  attributesfile = ~/.gitattributes
-  ignorecase = false
-
+	name = Nikita Madin
+	email = nikita.madin@gmail.com
 [alias]
-  aa = "!git add --all && git st"
-  br = branch
-  cm = commit -m
-  co = checkout
-  st = status --short --branch
-  git = !git
-  lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
-  ps = push
-  pl = pull
-
-[push]
-  default = current
+	current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
+	co = checkout
+	st = status --short --branch
+	lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
+	ps = !git push origin $(git current-branch)
+	pl = !git pull origin $(git current-branch) --rebase
+	aa = !git add . && git st
+	cm = commit -m
+	fixlast = commit --all --amend --no-edit
+[core]
+	editor = code --wait
+[branch]
+	autosetuprebase = always
